@@ -19,6 +19,5 @@ export class CreateScenarioUseCase {
             throw error;
         }
             
-        }
     }
 }
