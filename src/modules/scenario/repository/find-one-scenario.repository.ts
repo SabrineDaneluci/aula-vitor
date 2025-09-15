@@ -1,11 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/shared/databases/prisma.database';
+
 @Injectable()
-export class ListScenarioRepository {
+export class FindOneScenarioRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async listScenario() {
-    const scenario = await this.prisma.scenario.findMany();
-    return scenario;
+  async findOne(id: string) {
+    return this.prisma.scenario.findUnique({
+      where: { id },
+    });
   }
 }

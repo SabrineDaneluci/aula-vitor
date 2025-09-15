@@ -1,14 +1,14 @@
+/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/shared/databases/prisma.database';
-import { CreateScenarioDto } from '../dto/create-scenario.dto';
 
 @Injectable()
-export class CreateScenarioRepository {
+export class IdScenarioRepository {
   constructor(private readonly prisma: PrismaService) {}
-
-  async create(data: CreateScenarioDto) {
-    const scenario = await this.prisma.scenario.create({
-      data,
+  async findbyone (id: string) {
+ 
+    const scenario = await this.prisma.scenario.findUnique({
+           where: {id}
     });
     return scenario;
   }

@@ -1,4 +1,4 @@
-import { Option } from "@prisma/client";
+/* eslint-disable prettier/prettier */
 
 export class CreateScenarioDto {
     title: string;

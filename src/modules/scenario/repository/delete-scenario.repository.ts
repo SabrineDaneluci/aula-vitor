@@ -1,14 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/shared/databases/prisma.database';
-import { CreateScenarioDto } from '../dto/create-scenario.dto';
 
 @Injectable()
-export class CreateScenarioRepository {
+export class DeleteScenarioRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(data: CreateScenarioDto) {
-    const scenario = await this.prisma.scenario.create({
-      data,
+  async deleteScenario(id: string) {
+    const scenario = await this.prisma.scenario.delete({
+      where: { id },
     });
     return scenario;
   }
